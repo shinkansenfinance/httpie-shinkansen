@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "httpie-shinkansen"
+version = "0.1.0"
+description = "Shinkansen Network auth plugin for HTTPie."
+authors = ["Maurice Poirrier <mauricepoirrier@gmail.com>"]
+readme = "README.md"
+packages = [{include = "httpie_shinkansen"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+httpie = "^3.2.2"
+python-shinkansen = "^0.7.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.0"
+black = "^22.6.0"
+pre-commit = "^2.19.0"
+requests-mock = "^1.9.3"
+
+[tool.poetry.plugins."httpie.plugins.auth.v1"]
+httpie_shinkansen = "httpie_shinkansen:ShinkansenAuthPlugin"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
